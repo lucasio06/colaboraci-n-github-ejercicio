@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario de Clases</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .schedule-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e1e5eb;
+        }
+        
+        th {
+            background-color: #4a6ee0;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .time-cell {
+            background-color: #e9ecef;
+            font-weight: 600;
+        }
+        
+        .recess {
+            background-color: #ffeaa7;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .teachers-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .teachers-section h2 {
+            color: #4a6ee0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e1e5eb;
+        }
+        
+        .teacher-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .teacher-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1;
+            min-width: 200px;
+            border-left: 4px solid #4a6ee0;
+        }
+        
+        .teacher-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #4a6ee0;
+        }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .color-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        .hlc { background-color: #ff9ff3; }
+        .bd { background-color: #feca57; }
+        .sri { background-color: #ff6b6b; }
+        .ipe { background-color: #48dbfb; }
+        .sad { background-color: #1dd1a1; }
+        .aso { background-color: #54a0ff; }
+        .iaw { background-color: #5f27cd; color: white; }
+        .ing { background-color: #00d2d3; }
+        .pi { background-color: #ff9f43; }
+        
+        @media (max-width: 768px) {
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 10px 5px;
+            }
+            
+            .teacher-card {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            table {
+                font-size: 0.8rem;
+            }
+            
+            th, td {
+                padding: 8px 3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Horario de Clases</h1>
+            <p class="subtitle">Semana del 18 de septiembre de 2025</p>
+        </header>
+        
+        <div class="schedule-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>LUNES</th>
+                        <th>MARTES</th>
+                        <th>MIÉRCOLES</th>
+                        <th>JUEVES</th>
+                        <th>VIERNES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-cell">8:15 - 9:15</td>
+                        <td class="hlc">HLC</td>
+                        <td class="bd">BD</td>
+                        <td class="hlc">HLC</td>
+                        <td class="bd">BD</td>
+                        <td class="sri">SRI</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">9:15 - 10:15</td>
+                        <td class="sri">SRI</td>
+                        <td class="bd">BD</td>
+                        <td class="ipe">IPE</td>
+                        <td class="sad">SAD</td>
+                        <td class="sri">SRI</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:15 - 11:15</td>
+                        <td class="sri">SRI</td>
+                        <td class="aso">ASO</td>
+                        <td class="iaw">IAW</td>
+                        <td class="sad">SAD</td>
+                        <td class="ing">ING</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="recess">RECREO (11:15 - 11:45)</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:45 - 12:45</td>
+                        <td class="sad">SAD</td>
+                        <td class="aso">ASO</td>
+                        <td class="iaw">IAW</td>
+                        <td class="hlc">HLC</td>
+                        <td class="ing">ING</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">12:45 - 13:45</td>
+                        <td class="aso">ASO</td>
+                        <td class="iaw">IAW</td>
+                        <td class="aso">ASO</td>
+                        <td class="iaw">IAW</td>
+                        <td class="pi">PI</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">13:45 - 14:45</td>
+                        <td class="ipe">IPE</td>
+                        <td class="ipe">IPE</td>
+                        <td class="aso">ASO</td>
+                        <td class="sri">SRI</td>
+                        <td class="pi">PI</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="teachers-section">
+            <h2>Profesores</h2>
+            <div class="teacher-list">
+                <div class="teacher-card">
+                    <div class="teacher-name">Pepe</div>
+                    <div>Profesor</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-name">Jose Antonio</div>
+                    <div>Profesor</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-name">Jose</div>
+                    <div>Profesor</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-name">Rosa</div>
+                    <div>Profesora</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-name">Alejandro</div>
+                    <div>Profesor</div>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-name">Irene</div>
+                    <div>Profesora</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box hlc"></div>
+                <span>HLC</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box bd"></div>
+                <span>BD</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box sri"></div>
+                <span>SRI</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box ipe"></div>
+                <span>IPE</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box sad"></div>
+                <span>SAD</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box aso"></div>
+                <span>ASO</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box iaw"></div>
+                <span>IAW</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box ing"></div>
+                <span>ING</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box pi"></div>
+                <span>PI</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
